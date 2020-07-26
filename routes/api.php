@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
         //Articles
         //Route::get('user', 'UserController@getAuthenticatedUser');
         Route::get('articles/{article}', 'ArticleController@show');

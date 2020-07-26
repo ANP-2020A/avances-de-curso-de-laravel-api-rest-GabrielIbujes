@@ -18,7 +18,8 @@ class ArticleController extends Controller
 
     public function index()
     {
-//        $this->authorize('viewAny', Article::class);
+
+        //$this->authorize('viewAny', Article::class);
         return new ArticleCollection(Article::paginate(10));
     }
 
@@ -34,7 +35,7 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        //$this->authorize('create', Article::class);
+        $this->authorize('create', Article::class);
 
         $request->validate([
             'title' => 'required|string|unique:articles|max:255',
