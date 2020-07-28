@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
+use Ramsey\Uuid\Uuid;
 use Tymon\JWTAuth\Exceptions\JWTException;
-
+use App\Http\Resources\User as UserResource;
 
 class UserController extends Controller
 {
@@ -55,6 +56,6 @@ public function getAuthenticatedUser()
     } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
         return response()->json(['token_absent'], $e->getStatusCode());
     }
-    return response()->json(compact('user'));
+    return response()->json(new UserResource($user),200);
 }
 }
