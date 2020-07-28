@@ -28,8 +28,6 @@ use Illuminate\Support\Facades\Route;
         Route::get('articles/{article}/image','ArticleController@image');
 
 
-
-
         //Articles
         //Route::get('user', 'UserController@getAuthenticatedUser');
         Route::get('articles/{article}', 'ArticleController@show');
