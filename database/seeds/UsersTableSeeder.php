@@ -30,13 +30,14 @@ class UsersTableSeeder extends Seeder
             'name'=> 'Administrador',
             'email'=> 'admin@prueba.com',
             'password'=> $password,
+            'role'=>'ROLE_ADMIN',
             ]);
 
         //generar algunos usuarios para nuestra aplicación
         for($i = 0; $i < 10; $i++) {
             $writer = Writer::create([
                 'editorial'=>$faker->company,
-                'short_bio' =>'alguna biografia del escritor'
+                'short_bio' =>$faker->paragraph
             ]);
 
             $writer->user()->create([
